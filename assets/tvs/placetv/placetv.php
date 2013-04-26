@@ -1,6 +1,6 @@
 <?php
 /*
- PlaceTV — custom TV for MODx Evolution
+ PlaceTV вЂ” custom TV for MODx Evolution
  Version 26.04.16 by yurik@unix.am
 */
 
@@ -22,13 +22,13 @@ $value = empty($row['value']) ? $row['default_text'] : $row['value'];
 $id = $row['id'];
 
 echo <<<EOD
-<input type="text" id="tv{$id}" name="tv{$id}" value="{$value}" style="width:300px;" onchange="documentDirty=true;"/><input id="tv{$id}geocode" type="button" style="vertical-align:top;" value="Найти"/>
+<input type="text" id="tv{$id}" name="tv{$id}" value="{$value}" style="width:300px;" onchange="documentDirty=true;"/><input id="tv{$id}geocode" type="button" style="vertical-align:top;" value="РќР°Р№С‚Рё"/>
 <div class="map" id="map{$id}" style="height:300px; background:#eee; width:100%;"></div>
 <script type="text/javascript">
 var map{$id} = new Place();
 var point{$id} = new google.maps.LatLng({$value});
 map{$id}.createMap('map{$id}', point{$id}, 16);
-var mapMarker{$id} = map{$id}.createDraggableMarker(point{$id}, 'Местоположение', 'tv{$id}');
+var mapMarker{$id} = map{$id}.createDraggableMarker(point{$id}, 'РњРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ', 'tv{$id}');
 $('tv{$id}geocode').addEvents({
  'click':function() {
   var value = $('tv{$id}').value;
