@@ -1,7 +1,7 @@
 <?php
 /*
  PlaceTV — custom TV for MODx Evolution
- Version 15.05.16 by yurik@unix.am
+ Version 15.05.13 by yurik@unix.am
 */
 
 if (IN_MANAGER_MODE != 'true') {
