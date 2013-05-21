@@ -1,6 +1,6 @@
 /*
- Maps — Google Maps APIv3 wrapper with OSM and Yandex layers support
- Version 21.04.15 by yurik@unix.am
+ Maps — Google Maps APIv3 wrapper with OSM, Yandex and 2GIS layers support
+ Version 21.05.13 by yurik@unix.am
  
  Methods: createMap, createMarker, createDraggableMarker, codeAddress
 */
@@ -15,8 +15,19 @@ var osmMap = new google.maps.ImageMapType({
  isPng: true,
  maxZoom: 18,
  name: "OSM",
- alt: "Показать карту OpenStreetMap"
- });
+ alt: "OpenStreetMap"
+});
+// 2GIS
+var gisMap = new google.maps.ImageMapType({
+ getTileUrl: function(ll, z) {
+  return "http://tile0.maps.2gis.com/tiles?x=" + ll.x + "&y=" + ll.y + "&z=" + z + "&v=31";
+ },
+ tileSize: new google.maps.Size(256, 256),
+ isPng: true,
+ maxZoom: 18,
+ name: "2GIS",
+ // alt: "2GIS"
+});
 // Yandex
 var projectionYandexPrototype = function(){
  function atanh(x){
@@ -78,8 +89,8 @@ var yandexMap = new google.maps.ImageMapType({
  },
  tileSize: new google.maps.Size(256, 256),
  isPng: true,
- alt: 'Показать карту Яндекса',
- name: 'Яндекс',
+ // alt: 'Показать карту Яндекса',
+ name: 'Yandex',
  maxZoom: 17,
  minZoom:0
 });
@@ -101,7 +112,7 @@ Place.prototype = {
    zoom: zoom,
    center: point,
    mapTypeControlOptions: {
-    mapTypeIds: ['osm', 'yandex', google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN],
+    mapTypeIds: ['osm', 'yandex', '2gis', google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN],
     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
    },
    mapTypeId: type // osm | yandex | google.maps.MapTypeId.ROADMAP
@@ -109,6 +120,7 @@ Place.prototype = {
   var map = new google.maps.Map(document.getElementById(elementId), mapOptions);
   map.mapTypes.set('osm', osmMap);
   map.mapTypes.set('yandex', yandexMap);
+  map.mapTypes.set('2gis', gisMap);
   this.geocoder = new google.maps.Geocoder();
   /*
   var control = document.createElement('div'); 
