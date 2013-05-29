@@ -2,6 +2,7 @@ PlaceTV
 =======
 
 MODX Evolution custom TV to set place on map: OSM, Google, Yandex, 2GIS.
+Overview and demo: http://unix.am/blog/modx/maps
 
 Installation
 ============
