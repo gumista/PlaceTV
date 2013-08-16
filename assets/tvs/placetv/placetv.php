@@ -1,7 +1,7 @@
 <?php
 /*
  PlaceTV — custom TV for MODx Evolution
- Version 15.05.13 by yurik@unix.am
+ Version 16.08.13 by Yurik Dertlyan, yurik@unix.am
 */
 
 if (IN_MANAGER_MODE != 'true') {
@@ -27,9 +27,8 @@ echo <<<EOD
 <input type="text" id="tv{$id}" name="tv{$id}" value="{$value}" style="width:300px;" onchange="documentDirty=true;"/><input id="tv{$id}geocode" type="button" style="vertical-align:top;" value="{$placetv['lang']['search']}"/>
 <div class="map" id="map{$id}" style="height:300px; background:#eee; width:100%;"></div>
 <script type="text/javascript">
-var map{$id} = new Place();
 var point{$id} = new google.maps.LatLng({$value});
-map{$id}.createMap('map{$id}', point{$id}, 16);
+map{$id} = new Place('map{$id}', point{$id}, 16);
 var mapMarker{$id} = map{$id}.createDraggableMarker(point{$id}, '{$placetv['lang']['location']}', 'tv{$id}');
 $('tv{$id}geocode').addEvents({
  'click':function() {
