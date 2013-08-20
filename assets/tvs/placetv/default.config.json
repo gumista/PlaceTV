@@ -1,0 +1,9 @@
+{
+  icon:"default",
+  point:"42,42",
+  map:"osm",
+  maps:{
+    "osm":"OpenStreetMap",
+    "satellite":"Satellite"
+  }
+}
