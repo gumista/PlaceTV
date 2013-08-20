@@ -1,0 +1,7 @@
+{
+  airplane:"http://api-maps.yandex.ru/i/0.4/icons/airplane.png",
+  anchor:"http://api-maps.yandex.ru/i/0.4/icons/anchor.png",
+  house:"http://api-maps.yandex.ru/i/0.4/icons/house.png",
+  car:"http://api-maps.yandex.ru/i/0.4/icons/car.png",
+  buildings:"http://api-maps.yandex.ru/i/0.4/icons/buildings.png"
+}
