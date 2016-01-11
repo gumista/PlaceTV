@@ -22,7 +22,8 @@ function Place(elementId, point, zoom, type, typeIds) {
 			mapTypeIds: typeIds,
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
 		},
-		mapTypeId: type
+		mapTypeId: type,
+		scrollwheel: false
 	}
 	this.map = new google.maps.Map(document.getElementById(elementId), mapOptions);
 	this.map.mapTypes.set('osm', this.createMapType('osm'));
