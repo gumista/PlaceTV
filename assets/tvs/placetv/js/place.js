@@ -111,6 +111,8 @@ Place.prototype = {
 								latlng = new google.maps.LatLng(value[1], value[0]);
 								marker.setPosition(latlng);
 								map.setCenter(latlng);
+								google.maps.event.trigger(marker, 'drag');
+								google.maps.event.trigger(marker, 'dragend');
 							}
 						}
 					}
