@@ -8,7 +8,7 @@ $width = isset($width) ? $width : '100%';
 $height = isset($height) ? $height : '400';
 $geocoder = isset($geocoder) ? $geocoder : 'google';
 
-$modx->regClientStartupScript('https://maps.google.com/maps/api/js?sensor=false');
+$modx->regClientStartupScript('https://maps.google.com/maps/api/js');
 $modx->regClientStartupScript($modx->config['site_url'].'assets/tvs/placetv/js/place.js');
 
 $out = '<div id="placemap" style="width:'.$width.'px;height:'.$height.'px;background-color:#eee"></div>
