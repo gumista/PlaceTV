@@ -22,7 +22,8 @@ function Place(elementId, point, zoom, type, typeIds) {
 			mapTypeIds: typeIds,
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
 		},
-		mapTypeId: type
+		mapTypeId: type,
+		scrollwheel: false
 	}
 	this.map = new google.maps.Map(document.getElementById(elementId), mapOptions);
 	this.map.mapTypes.set('osm', this.createMapType('osm'));
@@ -111,6 +112,8 @@ Place.prototype = {
 								latlng = new google.maps.LatLng(value[1], value[0]);
 								marker.setPosition(latlng);
 								map.setCenter(latlng);
+								google.maps.event.trigger(marker, 'drag');
+								google.maps.event.trigger(marker, 'dragend');
 							}
 						}
 					}

@@ -9,7 +9,7 @@ if (IN_MANAGER_MODE != 'true') {
 }
 
 $includeOnce = <<<EOD
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
 <script src="/assets/tvs/placetv/js/place.js" type="text/javascript"></script>
 EOD;
 
